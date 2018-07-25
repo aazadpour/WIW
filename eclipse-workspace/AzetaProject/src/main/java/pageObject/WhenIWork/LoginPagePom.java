@@ -10,6 +10,7 @@ public class LoginPagePom {
 	private static WebElement element = null;
 	private static String id = null;
 	private static String xpath = null;
+	private static String cssSelector = null;
 	
 	// signinUsername txtbx								
 		public static WebElement dashboardNavLink_btn(WebDriver driver){								
@@ -30,4 +31,15 @@ public class LoginPagePom {
 			xpath = "//*[@id=\"today-schedule\"]/div[1]/div";							
 			return xpath;							
 		}
+		
+		// schedule title							
+		public static WebElement errorLoginRed_popup(WebDriver driver){								
+			element = driver.findElement(By.cssSelector("[class='notice alert alert-danger']"));							
+			return element;							
+		}								
+		public static String errorLoginRed_popup(){								
+			cssSelector = "[class='notice alert alert-danger']";							
+			return cssSelector;							
+		}
+		
 }

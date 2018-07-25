@@ -83,38 +83,38 @@ public class TestLogin extends TestSetup {
 		System.out.println("loginSuper test has finished running");
 	}
 	
-//	@Test
-//	public void loginFaultyCredentials() {
-//		
-//		// print out test kicking off
-//		System.out.println("Beginning loginAsManager Test ");
-//		
-//		// start up the driver
-//		driver = new ChromeDriver();
-//		
-//		// have the driver obtain the url of the page
-//		driver.get(wiwLoginPage);
-//		
-//		// sending email to email textbox
-//		driver.findElement(By.id("email")).sendKeys("azetaworks@gmail.com");
-//		
-//		// send password to password textbox
-//		driver.findElement(By.id("password")).sendKeys("Test1234567");
-//		
-//		// click login button
-//		driver.findElement(By.xpath("//*[@id=\"content\"]/div/div/div/div/div[1]/div/div[1]/div/form/div[3]/div/button")).click();
-//		
-//		// assert that the page landed onto the correct url (app.whenIwork.com)
-//		// Set landing page URL
-//		String landingPageTitle = driver.getTitle();
-//		Assert.assertTrue(landingPageTitle.equals("Home :: QA Engineering Sample on When I Work"), "Error: unable to successfully login with elevated credentials.");
-//		
-//		// kill the driver
-//		driver.close();
-//		
-//		// print out test finished running
-//		System.out.println("loginSuper test has finished running");
-//	}
+	@Test
+	public void loginFaultyCredentials() {
+		
+		// print out test kicking off
+		System.out.println("Beginning loginAsManager Test ");
+		
+		// start up the driver
+		driver = new ChromeDriver();
+		
+		// have the driver obtain the url of the page
+		driver.get(wiwLoginPage);
+		
+		// sending email to email textbox
+		driver.findElement(By.id("email")).sendKeys("azetaworks@gmail.com");
+		
+		// send password to password textbox
+		driver.findElement(By.id("password")).sendKeys("Test123");
+		
+		// click login button
+		driver.findElement(By.xpath("//*[@id=\"content\"]/div/div/div/div/div[1]/div/div[1]/div/form/div[3]/div/button")).click();
+		
+		// assert that the page landed onto the correct url (app.whenIwork.com)
+		// Set landing page Title
+		String landingPageTitle = driver.getTitle();
+		Assert.assertTrue(landingPageTitle.equals("Home :: QA Engineering Sample on When I Work"), "Error: unable to successfully login with elevated credentials.");
+		
+		// kill the driver
+		driver.close();
+		
+		// print out test finished running
+		System.out.println("loginSuper test has finished running");
+	}
 	
 }
 	
