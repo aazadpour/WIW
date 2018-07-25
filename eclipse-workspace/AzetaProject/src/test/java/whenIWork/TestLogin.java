@@ -10,12 +10,12 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import pageObject.WhenIWork.LoginPagePom;
-import setup.TestSetup;
+import setup.TestSetupHooks;
 import utils.Functions_WIW;
 
 import org.testng.Assert;
 
-public class TestLogin extends TestSetup {
+public class TestLogin extends TestSetupHooks {
 
 	public RemoteWebDriver driver;
 	String driverPath = "C:\\chromedriver.exe";
@@ -54,7 +54,7 @@ public class TestLogin extends TestSetup {
 	public void loginCorrectCredentials() throws InterruptedException {
 		
 		// print out test kicking off
-		System.out.println("Beginning loginAsManager Test ");
+		System.out.println("Beginning loginCorrectCredentials Test ");
 		
 		// start up the driver
 		driver = new ChromeDriver();
@@ -80,14 +80,14 @@ public class TestLogin extends TestSetup {
 		driver.quit();
 		
 		// print out test finished running
-		System.out.println("loginSuper test has finished running");
+		System.out.println("loginCorrectCredentials test has finished running");
 	}
 	
 	@Test
-	public void loginFaultyCredentials() {
+	public void loginFaultyCredentials() throws InterruptedException {
 		
 		// print out test kicking off
-		System.out.println("Beginning loginAsManager Test ");
+		System.out.println("Beginning loginFaultyCredentials Test ");
 		
 		// start up the driver
 		driver = new ChromeDriver();
@@ -104,16 +104,17 @@ public class TestLogin extends TestSetup {
 		// click login button
 		driver.findElement(By.xpath("//*[@id=\"content\"]/div/div/div/div/div[1]/div/div[1]/div/form/div[3]/div/button")).click();
 		
-		// assert that the page landed onto the correct url (app.whenIwork.com)
-		// Set landing page Title
-		String landingPageTitle = driver.getTitle();
-		Assert.assertTrue(landingPageTitle.equals("Home :: QA Engineering Sample on When I Work"), "Error: unable to successfully login with elevated credentials.");
+		// Set the error warning text in a variable to be compared to
+		String errorWarningText = LoginPagePom.errorLoginRed_popup(driver).getText();
+		
+		// assert that the error popup appeared
+		Assert.assertTrue(errorWarningText.equals("Incorrect username and/or password. Please try again."), "Error: unable to successfully login with elevated credentials.");
 		
 		// kill the driver
 		driver.close();
 		
 		// print out test finished running
-		System.out.println("loginSuper test has finished running");
+		System.out.println("loginFaultyCredentials test has finished running");
 	}
 	
 }
