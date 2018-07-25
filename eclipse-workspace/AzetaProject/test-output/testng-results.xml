@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2018-07-25T04:18:29Z" name="Default suite" finished-at="2018-07-25T04:18:49Z" duration-ms="20926">
+    <groups>
+    </groups>
+    <test started-at="2018-07-25T04:18:29Z" name="Default test" finished-at="2018-07-25T04:18:49Z" duration-ms="20926">
+      <class name="whenIWork.TestLogin">
+        <test-method signature="checkLoginTitle()[pri:0, instance:whenIWork.TestLogin@32ee6fee]" started-at="2018-07-25T04:18:29Z" name="checkLoginTitle" finished-at="2018-07-25T04:18:39Z" duration-ms="10277" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkLoginTitle -->
+        <test-method signature="loginSuper()[pri:0, instance:whenIWork.TestLogin@32ee6fee]" started-at="2018-07-25T04:18:39Z" name="loginSuper" finished-at="2018-07-25T04:18:49Z" duration-ms="10622" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginSuper -->
+      </class> <!-- whenIWork.TestLogin -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
