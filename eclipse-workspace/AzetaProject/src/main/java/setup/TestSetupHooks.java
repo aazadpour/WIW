@@ -20,12 +20,15 @@ public class TestSetupHooks {
 	@BeforeMethod //@Before in Cucumber
 	public void beforeScenario() {
 		
+		// @Given The test is about to begin
+		// @When the Driver is set and the path is correctly set
+		
 		// set driverpath variable
 		String driverPath = "C:\\chromedriver.exe";
 		System.out.println("Begin @Before Setup");
 		// set the sys property for the driver path
 		System.setProperty("webdriver.chrome.driver", driverPath);
-		// start up the driver
+		// @Then start up the driver
 		driver = new ChromeDriver();
 		
 	}
@@ -33,7 +36,12 @@ public class TestSetupHooks {
 	// this kills the driver at the end of every scenario 
 	@AfterMethod() //@After in Cucumber
 	public void afterScenario() throws Exception {
+		// @Given tests have finished running 
+		// @When tests are not throwing compile errors
+		
+		// print out end of test setup
 		System.out.println("End @After Setup");
+		// @Then the driver will be stopped
 		driver.quit();
 	}
 	

@@ -2,10 +2,10 @@ Feature: Test Order Hooks
 
 Scenario: Setup driver and Test Before Running
 Given The test is about to begin
-When I run the test
-Then the test will build the driver and its path
+When  the Driver is set and the path is correctly set
+Then start up the driver
 
 Scenario: Kill driver and Test After Running
-Given The tests have been executed
-When the tests have stopped running
+Given  tests have finished running 
+When tests are not throwing compile errors
 Then The driver will be stopped
