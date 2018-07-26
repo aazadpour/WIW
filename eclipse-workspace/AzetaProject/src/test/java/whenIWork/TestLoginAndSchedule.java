@@ -9,7 +9,7 @@ import pageObject.WhenIWork.LoginPagePom;
 import setup.TestSetupHooks;
 import org.testng.Assert;
 
-public class TestLogin extends TestSetupHooks  {
+public class TestLoginAndSchedule extends TestSetupHooks  {
 
 	public String wiwLoginPage = "https://login.wheniwork.com/";
 	public String AzetaEmail = "azetaworks@gmail.com";
@@ -22,12 +22,15 @@ public class TestLogin extends TestSetupHooks  {
 		// print out test kicking off
 		System.out.println("Beginning checkLoginTitle Test ");
 		
+		// 	@Given User is on Login Page
 		// have the driver obtain the url of the page
 		driver.get(wiwLoginPage);
 		
+		// @When User loads login page
 		// get the title of the page
 		String loginPageTitle = driver.getTitle();
 		
+		// 	@ Then Title of Page is Displayed Successfully
 		// assert that the page title is correct
 		Assert.assertTrue(loginPageTitle.equals("When I Work :: Schedule, Track, Communicate"), "Error: the login title was not correctly being reflected.");
 		
@@ -39,7 +42,13 @@ public class TestLogin extends TestSetupHooks  {
 	@Test
 	public void loginCorrectCredentials() throws InterruptedException {
 		
-		// assert that the page landed on app.wheniwork.com
+		// 	@Given User is on Login Page
+		// @When User is attempting to Login
+
+		// call login method
+		functions.login(driver, AzetaEmail, correctPassword);
+		
+		// @Then user will land on dashboard
 		functions.waitForElementToBeClickable(driver, LoginPagePom.dashboardNavLink_btn(), "id");
 		Assert.assertTrue(LoginPagePom.dashboardGreetingTitle_txt(driver).getText().equals("Hi Azeta! Today's Schedule for QA Engineering Sample"),"Error: The URL does not match the landing page's correct URL");
 		
@@ -53,12 +62,15 @@ public class TestLogin extends TestSetupHooks  {
 		// print out test kicking off
 		System.out.println("Beginning loginFaultyCredentials Test ");
 		
+		// 	@Given User is on Login Page
+		// @When User is attempting to Login with faulty credentials
 		// use login method from Functions_WIW but pass in the invalid password
 		functions.login(driver, AzetaEmail, incorrectPassword);
-		// click login button
 		
+		// click login button
 		driver.findElement(By.xpath("//*[@id=\"content\"]/div/div/div/div/div[1]/div/div[1]/div/form/div[3]/div/button")).click();
 		
+		//  @Then Error appears that User Entered Faulty Credentials
 		// wait for red popup to appear
 		functions.waitForElementToBeClickable(driver, LoginPagePom.errorLoginRed_popup(), "cssSelector");
 		
@@ -76,6 +88,9 @@ public class TestLogin extends TestSetupHooks  {
 	@Test
 	public void viewMySchedule() throws InterruptedException {
 		
+		// @Given User is on Login PAge
+		//@When User logs in successfully and goes to My Schedule
+
 		// Use existing login method in Functions_WIW to login to WIW
 		functions.login(driver, AzetaEmail, correctPassword);
 		
@@ -94,7 +109,8 @@ public class TestLogin extends TestSetupHooks  {
 		// wait for schedule calendar table to load
 		functions.waitForElementToBeClickable(driver, HomePageAndSchedulePom.myScheduleCalendar_tbl(), "cssSelector");
 		
-		// assert that the error popup appeared
+		// @Then User can see their current schedule
+		// assert that the calendar table is displaying and that there is no error displaying
 		Assert.assertTrue(HomePageAndSchedulePom.myScheduleCalendar_tbl(driver).isDisplayed(), "Error: The calendar is not displaying and/or is unable to load successfully");
 		
 		// print out test finished running

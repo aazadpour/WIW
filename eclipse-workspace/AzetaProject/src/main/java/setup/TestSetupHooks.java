@@ -1,7 +1,6 @@
 package setup;
 
 import utils.Functions_WIW;
-import whenIWork.TestLogin;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
