@@ -42,6 +42,10 @@ public class TestLoginAndSchedule extends TestSetupHooks  {
 	@Test
 	public void loginCorrectCredentials() throws InterruptedException {
 		
+		
+		// print out test kicking off
+		System.out.println("Beginning loginCorrectCredentials Test ");
+		
 		// 	@Given User is on Login Page
 		// @When User is attempting to Login
 
@@ -87,6 +91,9 @@ public class TestLoginAndSchedule extends TestSetupHooks  {
 	
 	@Test
 	public void viewMySchedule() throws InterruptedException {
+		
+		// print out test kicking off
+		System.out.println("Beginning viewMySchedule Test ");
 		
 		// @Given User is on Login PAge
 		//@When User logs in successfully and goes to My Schedule

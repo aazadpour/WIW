@@ -7,7 +7,7 @@ Scenario: Correct Page Title is Displayed
 	
 Scenario: Successful Login with Valid Credentials
 	Given User is on Login Page
-	When User is attempting to Login
+	When User is attempting to Login with Valid Credentials
 	And User enters correct Username
 	And User enters correct Password
 	Then User will land on Dashboard
