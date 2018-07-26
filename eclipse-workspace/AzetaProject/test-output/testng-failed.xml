@@ -5,7 +5,9 @@
     <classes>
       <class name="whenIWork.TestLogin">
         <methods>
-          <include name="loginSuper"/>
+          <include name="beforeScenario"/>
+          <include name="viewMySchedule"/>
+          <include name="afterScenario"/>
         </methods>
       </class> <!-- whenIWork.TestLogin -->
     </classes>

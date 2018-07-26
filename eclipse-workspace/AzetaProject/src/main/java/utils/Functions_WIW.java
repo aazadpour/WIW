@@ -9,7 +9,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Functions_WIW {
-
 	
 	// Wait for element to be clickable
 		@SuppressWarnings("unused")
@@ -38,5 +37,28 @@ public class Functions_WIW {
 			}
 			
 		} // end waitForElementToBeClickable
+		
+		// login to WIW
+		@SuppressWarnings("unused")
+		public synchronized void login(RemoteWebDriver driver, String username, String password) throws InterruptedException
+		{
+			
+			// print out test kicking off
+			System.out.println("Beginning loginCorrectCredentials Test ");
+			
+			// have the driver obtain the url of the page
+			driver.get("https://login.wheniwork.com");
+			
+			// sending email to email textbox
+			driver.findElement(By.id("email")).sendKeys(username);
+			
+			// send password to password textbox
+			driver.findElement(By.id("password")).sendKeys(password);
+			
+			// click login button
+			driver.findElement(By.xpath("//*[@id=\"content\"]/div/div/div/div/div[1]/div/div[1]/div/form/div[3]/div/button")).click();
+			
+		} // end waitForElementToBeClickable
+		
 		
 }
