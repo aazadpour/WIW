@@ -41,5 +41,16 @@ public class HomePageAndSchedulePom {
 		cssSelector = "[class='calendar-table']";
 		return cssSelector;
 	}
+	
+	// my schedule calendar table
+	public static WebElement scheduleShiftDashboard_link(WebDriver driver) {
+		element = driver.findElement(By.cssSelector("[href='/scheduler']"));
+		return element;
+	}
+	
+	public static String scheduleShiftDashboard_link() {
+		cssSelector = "[href='/scheduler']";
+		return cssSelector;
+	}
 }
 

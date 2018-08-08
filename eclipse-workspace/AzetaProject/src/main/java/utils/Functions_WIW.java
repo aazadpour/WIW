@@ -60,5 +60,4 @@ public class Functions_WIW {
 			
 		} // end waitForElementToBeClickable
 		
-		
 }
