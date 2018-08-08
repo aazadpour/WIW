@@ -1,11 +1,13 @@
 package utils;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Functions_WIW {
@@ -59,5 +61,18 @@ public class Functions_WIW {
 			driver.findElement(By.xpath("//*[@id=\"content\"]/div/div/div/div/div[1]/div/div[1]/div/form/div[3]/div/button")).click();
 			
 		} // end waitForElementToBeClickable
+		
+	    public void selectDropdownOption(RemoteWebDriver driver, WebElement element, String text){
+	         
+	        try {
+	            Select documentType = new Select(element);   
+	            documentType.selectByVisibleText(text);
+	        }
+	        catch (StaleElementReferenceException e) {
+	            Select documentType = new Select(element);   
+	            documentType.selectByVisibleText(text);
+	        }
+	         
+	    } // end selectDropdownOption
 		
 }
